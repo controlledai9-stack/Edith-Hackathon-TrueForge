@@ -13,8 +13,8 @@ Optional providers and OAuth connections are listed in `.env.example`.
 ## First-time setup
 
 ```powershell
-git clone YOUR_PUBLIC_REPOSITORY_URL
-cd YOUR_REPOSITORY_FOLDER
+git clone https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge.git
+cd Edith-Hackathon-TrueForge
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip

@@ -7,13 +7,13 @@ This document tracks evidence; it does not claim completion where an external li
 | 1 | Online or San Francisco participation; free entry | Participant/submission-platform item. No code action required. |
 | 2 | Solo or team of up to four; one team per participant | Participant must confirm team membership in the submission form. |
 | 3 | Agent runs on TrueForge and judges can see real harness work | Implemented: `app/integrations/trueforge/`, `app/services/trueforge_service.py`, MCP bridge, session persistence, streamed activity, approvals, cancellation, and `docs/TRUEFORGE.md`. Demo must show the TrueForge Activity events. |
-| 4 | Every substantive change is reviewed by Qodo in a GitHub PR before merge | **Blocking:** this copied folder currently has no Git/PR/Qodo history. Create a public repository and use the workflow in `CONTRIBUTING.md`; do not merge until initial and follow-up Qodo reviews are visible. |
+| 4 | Every substantive change is reviewed by Qodo in a GitHub PR before merge | Public PR [#1](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge/pull/1) contains the substantive implementation. **Blocking:** install Qodo, obtain its initial review, address findings, obtain a follow-up review, and only then merge. |
 | 5 | Open-ended project | Satisfied by E.D.I.T.H.'s multi-mode agent workspace. |
-| 6 | Public source and runnable code | Source and setup docs are prepared locally. **Blocking:** publish the repository publicly before submission. |
+| 6 | Public source and runnable code | Public repository created at [controlledai9-stack/Edith-Hackathon-TrueForge](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge); setup instructions are included. |
 | 7 | Authorized tools/data; no private/login-protected information in repo/demo | `.gitignore` excludes all runtime data, tokens, browser profiles, databases, uploads, and artifacts. Use only synthetic/public demo data and dedicated demo accounts. Run the secret scan before every push. |
 | 8 | Original coding/design occurs within the hackathon window | Participant must retain truthful commit/PR timestamps and be able to explain that implementation occurred during the event. Do not fabricate or rewrite evidence. |
 | 9 | Frameworks/libraries/public assets allowed | Dependencies are documented; original integration and product work are the judged contribution. |
-| 10 | Repo, README, video, write-up, TrueForge explanation, Qodo evidence, optional blog | README/setup/write-up prepared. **Blocking:** repository URL, demo video URL, and real Qodo PR/review links remain TODO. |
+| 10 | Repo, README, video, write-up, TrueForge explanation, Qodo evidence, optional blog | Repository, README, setup, write-up, and PR link are present. **Blocking:** completed Qodo review/follow-up evidence and the demo video URL remain. |
 | 11 | Deadline: August 30, 8:00 PM London | Treat the submission-platform clock as authoritative and submit before it closes. |
 | 12 | AI assistants allowed but must be disclosed | Disclosed in README and PR template. |
 | 13 | Participant understands code and decisions | Use `docs/TRUEFORGE.md` and `docs/DEMO_SCRIPT.md` to prepare; participant must personally explain the system. |
@@ -22,15 +22,13 @@ This document tracks evidence; it does not claim completion where an external li
 
 ## Required external actions before submission
 
-1. Create the public GitHub repository.
-2. Establish `main`, create a feature branch containing the hackathon code, and open a representative pull request.
-3. Enable/install Qodo for the repository and wait for its initial review.
-4. Resolve or explicitly dismiss findings, push the final fixes, and obtain the follow-up review.
-5. Merge through the pull request; do not directly push substantive changes to `main`.
-6. Replace every `TODO` in the README with real public links and an accurate Qodo summary.
-7. Record and upload the approximately three-minute demo using only synthetic/public data.
-8. Run tests and a secret scan against the exact final commit.
-9. Submit before the platform deadline.
+1. Enable/install Qodo for the repository and wait for its initial review.
+2. Resolve or explicitly dismiss findings, push the final fixes, and obtain the follow-up review.
+3. Merge through the pull request; do not directly push substantive code to `main`.
+4. Replace the remaining Qodo and demo-video placeholders in the README with real public links and an accurate review summary.
+5. Record and upload the approximately three-minute demo using only synthetic/public data.
+6. Run tests and a secret scan against the exact final commit.
+7. Submit before the platform deadline.
 
 ## Suggested pre-push secret scan
 

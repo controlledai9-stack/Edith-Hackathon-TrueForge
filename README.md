@@ -22,8 +22,8 @@ Working local plugins include Documents (`.docx`), PDFs, Spreadsheets (`.xlsx` w
 ### 1. Clone and open the repository
 
 ```powershell
-git clone YOUR_PUBLIC_REPOSITORY_URL
-cd YOUR_REPOSITORY_FOLDER
+git clone https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge.git
+cd Edith-Hackathon-TrueForge
 code .
 ```
 
@@ -193,7 +193,7 @@ AI coding assistants, including OpenAI Codex, were used during implementation fo
 
 > Submission blocker until the placeholders below are replaced with real public links.
 
-- Representative merged pull request: **TODO — add the public GitHub PR URL after Qodo review and merge**
+- Representative pull request: [Release E.D.I.T.H. TrueForge hackathon workspace](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge/pull/1) — open pending Qodo initial and follow-up reviews.
 - What Qodo surfaced and the decision: **TODO — summarize one or two concrete findings, the implemented fixes, and any finding intentionally dismissed with a reason**
 - Completed review and follow-up review: **TODO — link the Qodo review thread/check showing the initial findings, participant decisions, pushed fixes, and final follow-up review**
 
@@ -201,7 +201,7 @@ All substantive changes must be developed on a branch, opened as a GitHub pull r
 
 ## Submission links
 
-- Public source repository: **TODO**
+- Public source repository: [controlledai9-stack/Edith-Hackathon-TrueForge](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge)
 - Three-minute demo video: **TODO**
 - Project write-up: this README and [docs/TRUEFORGE.md](docs/TRUEFORGE.md)
 - Optional blog post: **TODO if entering the blog prize**
