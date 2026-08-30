@@ -329,7 +329,7 @@ class UniversalBrowserServiceTests(unittest.TestCase):
         with (
             TemporaryDirectory() as directory,
             patch.object(WorkModeService, "_PENDING_PATH", Path(directory) / "pending.json"),
-            patch.object(work_mode_module, "GROQ_API_KEYS", ["test-key"]),
+            patch.object(work_mode_module.config, "GROQ_API_KEYS", ["test-key"]),
         ):
             service = WorkModeService()
             with (
