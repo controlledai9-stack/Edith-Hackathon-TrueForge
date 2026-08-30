@@ -1,0 +1,40 @@
+.env
+.env.*
+!.env.example
+.venv/
+.venv*/
+.venv314/
+.test-venv/
+.deploy-venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+.video-tools/
+tmp/
+video_edit/
+
+# Runtime/user data must never enter the public repository.
+# This includes chats, uploaded files, generated artifacts, OAuth tokens,
+# cookies, persistent browser profiles, research sources, and harness sessions.
+data/
+database/
+storage/
+uploads/
+downloads/
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+*.p12
+*.pfx
+client_secret*.json
+credentials*.json
+token*.json
+
+# Local and deployment artifacts.
+.render/
+trueforge/node_modules/
+node_modules/
+*.log
