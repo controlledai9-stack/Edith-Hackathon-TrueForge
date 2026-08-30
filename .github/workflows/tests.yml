@@ -20,4 +20,6 @@ jobs:
       - name: Install test dependencies
         run: pip install -r requirements-deploy.txt pytest
       - name: Run regression suite
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: pytest -q
