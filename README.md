@@ -174,6 +174,10 @@ Run the complete regression suite:
 
 The current local build passes 106 tests. For the demo, keep both E.D.I.T.H. and TrueForge visible and show the Activity panel progressing through `harness_session`, planning, tool approval, tool execution, and the final artifact.
 
+## Cloud demo
+
+`render.yaml` creates a separate Render web service and does not modify any existing Vercel or Render project. The hosted demo runs the E.D.I.T.H. web application and deterministic Work Mode artifact tools. TrueForge 0.1.4 standalone is intentionally disabled in the public cloud service because its bundled standalone server is local-only and is not hardened for shared internet access. Run the local setup above for the full judged TrueForge workflow.
+
 ## AI coding-assistant disclosure
 
 AI coding assistants, including OpenAI Codex, were used during implementation for code generation, debugging, refactoring, testing, and documentation. The participant directed the product design, supplied requirements and test cases, ran and evaluated the application, selected technical trade-offs, and is responsible for understanding and explaining the submitted code.

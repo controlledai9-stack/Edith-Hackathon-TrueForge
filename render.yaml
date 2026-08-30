@@ -14,7 +14,11 @@ services:
         value: "false"
       - key: ASSISTANT_NAME
         value: Edith
+      - key: TRUEFORGE_ENABLED
+        value: "false"
       - key: GROQ_API_KEY
         sync: false
       - key: TAVILY_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
         sync: false
