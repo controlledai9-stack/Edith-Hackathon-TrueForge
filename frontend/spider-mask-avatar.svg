@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Spider-Man mask avatar</title>
+  <defs>
+    <linearGradient id="maskRed" x1="24" y1="16" x2="104" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff3157"/>
+      <stop offset=".52" stop-color="#d90b34"/>
+      <stop offset="1" stop-color="#750019"/>
+    </linearGradient>
+    <filter id="avatarGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M64 7C39 7 19 25 17 50c-2 29 12 56 47 71 35-15 49-42 47-71C109 25 89 7 64 7Z" fill="url(#maskRed)" stroke="#ff4967" stroke-width="3" filter="url(#avatarGlow)"/>
+  <g fill="none" stroke="#33000d" stroke-width="2.3" stroke-linecap="round" opacity=".92">
+    <path d="M64 9v109M23 35c25 13 57 13 82 0M17 57c28 13 66 13 94 0M21 82c25 9 61 9 86 0"/>
+    <path d="M64 10C48 25 41 44 42 65c1 22 9 39 22 53M64 10c16 15 23 34 22 55-1 22-9 39-22 53M29 21c8 15 9 31 4 48-4 15-3 28 6 40M99 21c-8 15-9 31-4 48 4 15 3 28-6 40"/>
+  </g>
+  <path d="M29 47c12 1 23 6 31 17-8 14-19 22-34 23-3-16-2-29 3-40Z" fill="#fff" stroke="#15010a" stroke-width="5"/>
+  <path d="M99 47c-12 1-23 6-31 17 8 14 19 22 34 23 3-16 2-29-3-40Z" fill="#fff" stroke="#15010a" stroke-width="5"/>
+  <path d="M31 52c9 2 17 6 23 13-6 8-14 13-23 15" fill="none" stroke="#b8eaff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M97 52c-9 2-17 6-23 13 6 8 14 13 23 15" fill="none" stroke="#b8eaff" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 312" role="img" aria-labelledby="title desc">
+  <title id="title">Neon spider logo</title>
+  <desc id="desc">A symmetrical neon red and blue spider emblem on a transparent background.</desc>
+  <defs>
+    <linearGradient id="neon" x1="175" y1="28" x2="175" y2="286" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff456f"/>
+      <stop offset="0.58" stop-color="#ff2771"/>
+      <stop offset="0.82" stop-color="#7358ff"/>
+      <stop offset="1" stop-color="#39bfff"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="wide"/>
+      <feGaussianBlur stdDeviation="3" result="near"/>
+      <feMerge>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="near"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke="url(#neon)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <!-- upper legs -->
+    <path d="M150 119 105 80 111 42 126 15 113 72 151 105"/>
+    <path d="M139 128 91 100 83 49 70 76 62 125 126 137"/>
+    <path d="M132 143 76 137 43 158 47 213 65 266 58 207 61 170 116 154"/>
+    <path d="M139 151 94 164 76 195 81 237 99 276 90 226 92 190 147 160"/>
+
+    <!-- mirrored upper and lower legs -->
+    <path d="M200 119 245 80 239 42 224 15 237 72 199 105"/>
+    <path d="M211 128 259 100 267 49 280 76 288 125 224 137"/>
+    <path d="M218 143 274 137 307 158 303 213 285 266 292 207 289 170 234 154"/>
+    <path d="M211 151 256 164 274 195 269 237 251 276 260 226 258 190 203 160"/>
+
+    <!-- head, pincers, and body -->
+    <path d="M148 124 137 113 145 96 151 112 161 107 164 91 174 108 185 91 188 108 199 113 205 97 213 114 202 125"/>
+    <path d="M149 137 132 154 146 168 150 207 164 233 175 243 186 233 200 207 204 168 218 154 201 137"/>
+    <path d="M151 142 163 132 175 136 187 132 199 142"/>
+  </g>
+
+  <!-- bright core line keeps the mark crisp at small CSS sizes -->
+  <g fill="none" stroke="#ffd5e3" stroke-opacity=".72" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 119 105 80 111 42 126 15 113 72 151 105M139 128 91 100 83 49 70 76 62 125 126 137M132 143 76 137 43 158 47 213 65 266 58 207 61 170 116 154M139 151 94 164 76 195 81 237 99 276 90 226 92 190 147 160"/>
+    <path d="M200 119 245 80 239 42 224 15 237 72 199 105M211 128 259 100 267 49 280 76 288 125 224 137M218 143 274 137 307 158 303 213 285 266 292 207 289 170 234 154M211 151 256 164 274 195 269 237 251 276 260 226 258 190 203 160"/>
+    <path d="M148 124 137 113 145 96 151 112 161 107 164 91 174 108 185 91 188 108 199 113 205 97 213 114 202 125M149 137 132 154 146 168 150 207 164 233 175 243 186 233 200 207 204 168 218 154 201 137M151 142 163 132 175 136 187 132 199 142"/>
+  </g>
+</svg>

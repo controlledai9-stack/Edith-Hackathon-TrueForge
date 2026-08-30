@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: edith-hackathon
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: ENABLE_VECTOR_MEMORY
+        value: "false"
+      - key: ASSISTANT_NAME
+        value: Edith
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
