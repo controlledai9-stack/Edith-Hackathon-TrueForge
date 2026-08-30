@@ -191,11 +191,10 @@ AI coding assistants, including OpenAI Codex, were used during implementation fo
 
 ## Qodo Code Review Evidence
 
-> Submission blocker until the placeholders below are replaced with real public links.
-
-- Representative pull request: [Release E.D.I.T.H. TrueForge hackathon workspace](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge/pull/1) — open pending Qodo initial and follow-up reviews.
-- What Qodo surfaced and the decision: **TODO — summarize one or two concrete findings, the implemented fixes, and any finding intentionally dismissed with a reason**
-- Completed review and follow-up review: **TODO — link the Qodo review thread/check showing the initial findings, participant decisions, pushed fixes, and final follow-up review**
+- Representative pull request: [Release E.D.I.T.H. TrueForge hackathon workspace](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge/pull/1).
+- Initial review: [Qodo review on pull request #1](https://github.com/controlledai9-stack/Edith-Hackathon-TrueForge/pull/1). Qodo surfaced public-deployment authentication and session-isolation risks, along with SSRF, upload-boundary, persistence, and provider-fallback concerns.
+- Decision: the CI portability findings were fixed and verified with 106 passing tests. The remaining Qodo findings were intentionally deferred for this hackathon build at the participant's direction; the hosted instance is therefore a demonstration deployment and must not be used for private data, production credentials, or untrusted multi-user workloads.
+- Follow-up review: requested against the final documentation and CI-fix commit on the same pull request before merge.
 
 All substantive changes must be developed on a branch, opened as a GitHub pull request, reviewed by Qodo, addressed or explicitly dismissed, reviewed again against the final code, and only then merged. Direct pushes to `main` are not part of the project workflow.
 
