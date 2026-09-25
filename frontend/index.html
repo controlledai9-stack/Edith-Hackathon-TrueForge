@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#030106">
+    <title>E.D.I.T.H</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260830-native-browser2">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+            svg: { fontCache: 'global' },
+            startup: { typeset: false }
+        };
+    </script>
+    <script defer src="vendor/mathjax/node_modules/mathjax/es5/tex-svg.js"></script>
+</head>
+<body>
+    <div class="app">
+    <div id="orb-container" class="spider-logo">
+        <div class="spider-web" aria-hidden="true"></div>
+        <div class="spider-hud" aria-hidden="true">
+            <div class="hud-ring hud-ring-blue-2"></div>
+            <div class="hud-ring hud-ring-red-2"></div>
+            <div class="hud-ring hud-ring-blue-1"></div>
+            <div class="hud-ring hud-ring-red-1"></div>
+            <div class="hud-particle hud-particle-1"></div>
+            <div class="hud-particle hud-particle-2"></div>
+            <div class="hud-particle hud-particle-3"></div>
+        </div>
+        <svg id="spider-mark" class="spider-logo-mark" viewBox="0 0 350 312" role="img" aria-labelledby="spiderTitle spiderDesc">
+            <title id="spiderTitle">Neon spider mark</title>
+            <desc id="spiderDesc">A symmetrical neon spider emblem with red, purple and blue internal energy.</desc>
+            <defs>
+                <linearGradient id="neonIdle" x1="175" y1="28" x2="175" y2="286" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#ff456f"/>
+                    <stop offset="0.58" stop-color="#ff2771"/>
+                    <stop offset="0.82" stop-color="#7358ff"/>
+                    <stop offset="1" stop-color="#39bfff"/>
+                </linearGradient>
+                <radialGradient id="spiderCoreGlow" cx="50%" cy="55%" r="48%">
+                    <stop offset="0%" stop-color="#ff2ea6" stop-opacity="0.85"/>
+                    <stop offset="45%" stop-color="#b026ff" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#b026ff" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="spiderGlow" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+                    <feGaussianBlur stdDeviation="4.5" result="wide"/>
+                    <feGaussianBlur stdDeviation="1.4" result="near"/>
+                    <feMerge>
+                        <feMergeNode in="wide"/>
+                        <feMergeNode in="near"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <filter id="spiderGlowHot" x="-60%" y="-60%" width="220%" height="220%" color-interpolation-filters="sRGB">
+                    <feGaussianBlur stdDeviation="5" result="wide"/>
+                    <feGaussianBlur stdDeviation="1.7" result="near"/>
+                    <feMerge>
+                        <feMergeNode in="wide"/>
+                        <feMergeNode in="near"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- idle outline — always visible, keeps the mark sharp in every state -->
+            <g class="spider-strokes-idle" fill="none" stroke="url(#neonIdle)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#spiderGlow)">
+                <path d="M150 119 105 80 111 42 126 15 113 72 151 105"/>
+                <path d="M139 128 91 100 83 49 70 76 62 125 126 137"/>
+                <path d="M132 143 76 137 43 158 47 213 65 266 58 207 61 170 116 154"/>
+                <path d="M139 151 94 164 76 195 81 237 99 276 90 226 92 190 147 160"/>
+                <path d="M200 119 245 80 239 42 224 15 237 72 199 105"/>
+                <path d="M211 128 259 100 267 49 280 76 288 125 224 137"/>
+                <path d="M218 143 274 137 307 158 303 213 285 266 292 207 289 170 234 154"/>
+                <path d="M211 151 256 164 274 195 269 237 251 276 260 226 258 190 203 160"/>
+                <path d="M148 124 137 113 145 96 151 112 161 107 164 91 174 108 185 91 188 108 199 113 205 97 213 114 202 125"/>
+                <path d="M149 137 132 154 146 168 150 207 164 233 175 243 186 233 200 207 204 168 218 154 201 137"/>
+                <path d="M151 142 163 132 175 136 187 132 199 142"/>
+            </g>
+
+            <!-- center energy bloom — fades in while speaking -->
+            <circle class="spider-core-glow" cx="175" cy="172" r="62" fill="url(#spiderCoreGlow)"/>
+
+            <!-- upper legs energy (red/pink) — fades in + pulses while speaking -->
+            <g class="spider-energy-upper" fill="none" stroke="#ff2e63" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#spiderGlowHot)">
+                <path d="M150 119 105 80 111 42 126 15 113 72 151 105"/>
+                <path d="M139 128 91 100 83 49 70 76 62 125 126 137"/>
+                <path d="M200 119 245 80 239 42 224 15 237 72 199 105"/>
+                <path d="M211 128 259 100 267 49 280 76 288 125 224 137"/>
+            </g>
+
+            <!-- lower legs energy (electric blue) — fades in + pulses while speaking -->
+            <g class="spider-energy-lower" fill="none" stroke="#00b7ff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#spiderGlowHot)">
+                <path d="M132 143 76 137 43 158 47 213 65 266 58 207 61 170 116 154"/>
+                <path d="M139 151 94 164 76 195 81 237 99 276 90 226 92 190 147 160"/>
+                <path d="M218 143 274 137 307 158 303 213 285 266 292 207 289 170 234 154"/>
+                <path d="M211 151 256 164 274 195 269 237 251 276 260 226 258 190 203 160"/>
+            </g>
+
+            <!-- head/body energy (magenta/purple) — fades in + pulses while speaking -->
+            <g class="spider-energy-core" fill="none" stroke="#c026ff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#spiderGlowHot)">
+                <path d="M148 124 137 113 145 96 151 112 161 107 164 91 174 108 185 91 188 108 199 113 205 97 213 114 202 125"/>
+                <path d="M149 137 132 154 146 168 150 207 164 233 175 243 186 233 200 207 204 168 218 154 201 137"/>
+                <path d="M151 142 163 132 175 136 187 132 199 142"/>
+            </g>
+
+            <!-- bright core line keeps the mark crisp at small CSS sizes -->
+            <g class="spider-core-line" fill="none" stroke="#ffd5e3" stroke-opacity=".72" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M150 119 105 80 111 42 126 15 113 72 151 105M139 128 91 100 83 49 70 76 62 125 126 137M132 143 76 137 43 158 47 213 65 266 58 207 61 170 116 154M139 151 94 164 76 195 81 237 99 276 90 226 92 190 147 160"/>
+                <path d="M200 119 245 80 239 42 224 15 237 72 199 105M211 128 259 100 267 49 280 76 288 125 224 137M218 143 274 137 307 158 303 213 285 266 292 207 289 170 234 154M211 151 256 164 274 195 269 237 251 276 260 226 258 190 203 160"/>
+                <path d="M148 124 137 113 145 96 151 112 161 107 164 91 174 108 185 91 188 108 199 113 205 97 213 114 202 125M149 137 132 154 146 168 150 207 164 233 175 243 186 233 200 207 204 168 218 154 201 137M151 142 163 132 175 136 187 132 199 142"/>
+            </g>
+            </svg>
+         </div>
+
+        <header class="header glass-panel">
+            <div class="header-left">
+                <h1 class="logo" aria-label="E.D.I.T.H">E.D.I.T.H</h1>
+                <span class="nvidia-lockup" title="Built for the NVIDIA hackathon">
+                    <span class="brand-cross">×</span>
+                    <span class="nvidia-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M3 12c3.7-5 11.2-6.5 17-2.2-3.6-1.3-8.2-.5-10.7 2.4 2 2.2 5.6 2.7 8.1 1.1-2 3.5-7.2 4.4-10.6 1.5A8.8 8.8 0 0 1 3 12Z"/><circle cx="12.5" cy="12.1" r="2.1"/></svg>
+                    </span>
+                    <span class="nvidia-copy"><strong>NVIDIA</strong><small>HACKATHON</small></span>
+                </span>
+            </div>
+            <div class="header-center">
+                <div class="mode-switch mode-switch-three" id="mode-switch">
+                    <div class="mode-slider" id="mode-slider"></div>
+                    <button class="mode-btn active" data-mode="edit" id="btn-jarvis" title="E.D.I.T.H. Mode — fast chat, explanations, and everyday assistance">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        <span class="mode-btn-text">E.D.I.T.H.</span>
+                    </button>
+                    <button class="mode-btn" data-mode="work" id="btn-scraper" title="Work Mode — plugins, files, research, and connected services">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span class="mode-btn-text">Work</span>
+                    </button>
+                    <button class="mode-btn" data-mode="research" id="btn-research" title="Research Mode — web research, documents, screenshots, and homework solving">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/><path d="M8 11h6M11 8v6"/></svg>
+                        <span class="mode-btn-text">Research</span>
+                    </button>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="status-badge" id="status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+                <button class="btn-icon activity-toggle" id="activity-toggle" title="View activity flow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+                <button class="btn-icon history-toggle" id="history-toggle" title="Chat history">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                </button>
+                <button class="btn-icon intel-toggle" id="intel-toggle" title="Manage Work Mode plugins">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+                </button>
+                <button class="btn-icon search-results-toggle" id="search-results-toggle" title="View search results" style="display: none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+                <button class="btn-icon research-files-toggle" id="research-files-toggle" title="Open Research Files" aria-label="Open Research Files" hidden>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6l2 2h10v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 7V5a2 2 0 0 1 2-2h4l2 2h6"/></svg>
+                </button>
+                <button class="btn-icon guide-btn" id="guide-btn" title="How to use E.D.I.T.H." aria-label="Open the E.D.I.T.H. guide">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.5 2.5 0 1 1 3.4 2.32c-.76.34-1.1.83-1.1 1.68"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </button>
+                <button class="btn-icon settings-btn" id="settings-btn" title="Settings">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </button>
+                <button class="btn-icon new-chat-btn" id="new-chat-btn" title="New Chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <aside class="activity-panel glass-panel" id="activity-panel" aria-hidden="true">
+            <div class="activity-header">
+                <h3 class="activity-title">Activity</h3>
+                <button class="activity-close" id="activity-close" title="Close" aria-label="Close activity panel">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="activity-list" id="activity-list">
+                <div class="activity-empty" id="activity-empty">Send a message to see the flow here.</div>
+            </div>
+        </aside>
+        <aside class="activity-panel glass-panel" id="history-panel" aria-hidden="true">
+            <div class="activity-header">
+                <h3 class="activity-title">History</h3>
+                <button class="activity-close" id="history-close" title="Close" aria-label="Close history panel">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="activity-list" id="history-list">
+                <div class="activity-empty" id="history-empty">No previous chats yet.</div>
+            </div>
+        </aside>
+        <main class="chat-area" id="chat-area">
+            <section class="homework-solution-board" id="homework-solution-board" hidden>
+                <div class="homework-board-header">
+                    <div>
+                        <span class="homework-board-kicker">HOMEWORK WORKSPACE</span>
+                        <h2>Solution Board</h2>
+                    </div>
+                    <button type="button" class="homework-board-files" id="homework-board-files">Research Files</button>
+                </div>
+                <div class="homework-board-content" id="homework-board-content">
+                    <div class="homework-board-empty">
+                        <strong>Your worked solution will appear here.</strong>
+                        <span>Upload clear screenshots, include every question edge, and press Send.</span>
+                    </div>
+                </div>
+            </section>
+            <button type="button" class="homework-layout-divider" id="homework-layout-divider" hidden
+                    title="Drag to resize, or click to expand the assistant" aria-label="Resize Homework workspace"
+                    aria-orientation="vertical">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-screen" id="welcome-screen">
+                    <div class="welcome-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h2 class="welcome-title" id="welcome-title">Good evening.</h2>
+                    <p class="welcome-sub">How may I assist you today?</p>
+                    <div class="welcome-chips">
+                        <button class="chip" data-msg="What can you do?">What can you do?</button>
+                        <button class="chip" data-msg="Scrape https://example.com">Scrape a page</button>
+                        <button class="chip" data-msg="Monitor NVIDIA">Monitor a company</button>
+                        <button class="chip" data-msg="Show my watchlist">Show watchlist</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside class="research-files-panel glass-panel" id="research-files-panel" aria-hidden="true">
+            <div class="activity-header">
+                <div>
+                    <h3 class="activity-title">Research Files</h3>
+                    <p class="research-files-subtitle">One cumulative homework methods and formula file</p>
+                </div>
+                <button class="activity-close" id="research-files-close" title="Close" aria-label="Close Research Files">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="research-files-list" id="research-files-list">
+                <div class="activity-empty">No Research Mode files yet.</div>
+            </div>
+            <section class="research-file-editor" id="research-file-editor" hidden>
+                <div class="research-file-editor-header">
+                    <button type="button" class="research-editor-back" id="research-editor-back">← Files</button>
+                    <strong id="research-editor-name">Homework methods</strong>
+                </div>
+                <textarea class="research-editor-content" id="research-editor-content" spellcheck="false" aria-label="Editable research file"></textarea>
+                <div class="research-file-editor-actions">
+                    <span id="research-editor-status" aria-live="polite"></span>
+                    <button type="button" class="research-editor-button secondary" id="research-editor-download">Download</button>
+                    <button type="button" class="research-editor-button primary" id="research-editor-save">Save changes</button>
+                </div>
+            </section>
+        </aside>
+        <footer class="input-bar glass-panel">
+            <div class="input-wrapper">
+                <select id="chat-model-selector" class="chat-model-selector" aria-label="AI model" title="Choose one model or let Auto use the first available provider">
+                    <option value="auto">✦ Auto</option>
+                </select>
+                <textarea id="message-input"
+                          placeholder="Ask Edith anything..."
+                          rows="1"
+                          maxlength="32000"></textarea>
+                <div class="input-actions">
+                    <input type="file" id="image-upload-input" accept="image/png,image/jpeg,image/webp,image/gif,video/mp4,video/webm,video/quicktime,text/plain,text/markdown,text/csv,application/json,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.txt,.md,.csv,.json,.pdf,.docx" multiple hidden>
+                    <button class="action-btn upload-btn" id="upload-btn" title="Upload up to five photos or short videos" aria-label="Upload photos or videos">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.4 11.6 12 21a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn cam-btn" id="cam-btn" title="Camera — capture and send for vision">
+                        <svg class="cam-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                        <svg class="cam-icon-active" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn mic-btn" id="mic-btn" title="Voice input — click to start auto-listen (restarts after each response)">
+                        <svg class="mic-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                        <svg class="mic-icon-active" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="4" y="4" width="16" height="16" rx="3"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn tts-btn" id="tts-btn" title="Text to Speech">
+                        <svg class="tts-icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                            <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+                        </svg>
+                        <svg class="tts-icon-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn send-btn" id="send-btn" title="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="input-meta" id="input-meta">
+                <button class="stop-task-button" id="stop-task-button" type="button" hidden>
+                    <span aria-hidden="true">■</span> Stop task
+                </button>
+                <div class="research-branch-switch" id="research-branch-switch" hidden>
+                    <button type="button" class="active" data-research-branch="research">Research</button>
+                    <button type="button" data-research-branch="homework">Homework</button>
+                </div>
+                <div class="research-source-control" id="research-source-control" hidden>
+                    <button type="button" id="research-source-toggle">＋ Source link</button>
+                    <form id="research-source-form" hidden>
+                        <input id="research-source-url" type="url" inputmode="url" placeholder="Paste a public YouTube URL" aria-label="Research source URL">
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+                <div class="research-source-manager" id="research-source-manager" hidden>
+                    <button type="button" id="research-sources-toggle">Sources <span id="research-source-count">0</span></button>
+                    <div class="research-sources-popover" id="research-sources-popover" hidden>
+                        <div class="research-sources-heading">
+                            <strong>Session sources</strong>
+                            <span id="research-source-token-total">0 tokens enabled</span>
+                        </div>
+                        <div id="research-sources-list" class="research-sources-list">
+                            <span class="research-sources-empty">Sources you upload in this session appear here.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-upload-preview" id="image-upload-preview" hidden>
+                    <img id="image-upload-thumb" alt="Selected upload preview">
+                    <span id="image-upload-name"></span>
+                    <button id="image-upload-remove" type="button" title="Remove selected image" aria-label="Remove selected image">×</button>
+                </div>
+                <span class="char-count" id="char-count"></span>
+            </div>
+        </footer>
+        <aside class="search-results-widget glass-panel" id="search-results-widget" aria-hidden="true">
+            <div class="search-results-header">
+                <h3 class="search-results-title">Live search</h3>
+                <button class="search-results-close" id="search-results-close" title="Close" aria-label="Close search results">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="search-results-query" id="search-results-query"></div>
+            <div class="search-results-answer" id="search-results-answer"></div>
+            <div class="search-results-list" id="search-results-list"></div>
+        </aside>
+        <div class="settings-panel glass-panel" id="settings-panel" aria-hidden="true">
+            <div class="settings-header">
+                <h3 class="settings-title">Settings</h3>
+                <button class="settings-close btn-icon" id="settings-close" title="Close" aria-label="Close settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="settings-body">
+                <div class="settings-item">
+                    <label class="settings-label" for="toggle-auto-activity">Auto-open Activity in Edit, Work, and Research</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-auto-activity" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <label class="settings-label" for="toggle-auto-search">Auto-open search results</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-auto-search" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <label class="settings-label" for="toggle-auto-approve-work">Auto-approve safe Work Mode browsing</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-auto-approve-work" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <label class="settings-label" for="toggle-thinking-sounds">Thinking sound effects</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-thinking-sounds" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <label class="settings-label" for="toggle-voice-interrupt">Voice interruption</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-voice-interrupt" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <section class="model-settings" aria-labelledby="model-settings-title">
+                    <div class="model-settings-heading">
+                        <div>
+                            <h4 id="model-settings-title">Global AI providers</h4>
+                            <p>Save each key once. The same providers are used in Edit, Work, Research, and Homework; Auto moves to the next provider when one reaches a limit.</p>
+                        </div>
+                        <span id="model-router-status">Checking…</span>
+                    </div>
+                    <div class="model-provider-statuses" id="model-provider-statuses" aria-live="polite">
+                        <span data-provider-status="groq">Groq · checking</span>
+                        <span data-provider-status="gemini">Gemini · checking</span>
+                        <span data-provider-status="openrouter">OpenRouter · checking</span>
+                    </div>
+                    <label class="model-field">Provider priority
+                        <select id="model-provider-order">
+                            <option value="groq,gemini,openrouter">Groq, then Gemini, then OpenRouter</option>
+                            <option value="gemini,groq,openrouter">Gemini, then Groq, then OpenRouter</option>
+                            <option value="openrouter,groq,gemini">OpenRouter, then Groq, then Gemini</option>
+                        </select>
+                    </label>
+                    <label class="model-field">Groq API key
+                        <input id="model-groq-keys" type="password" autocomplete="off" placeholder="Leave blank to keep the saved key">
+                    </label>
+                    <a class="settings-external-link" href="https://console.groq.com/keys" target="_blank" rel="noopener">Get a Groq API key ↗</a>
+                    <label class="model-field">Gemini API key
+                        <input id="model-gemini-key" type="password" autocomplete="off" placeholder="Leave blank to keep the saved key">
+                    </label>
+                    <a class="settings-external-link" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Get a Gemini API key from Google AI Studio ↗</a>
+                    <label class="model-field">OpenRouter API key
+                        <input id="model-openrouter-key" type="password" autocomplete="off" placeholder="Leave blank to keep the saved key">
+                    </label>
+                    <div class="settings-link-row">
+                        <a class="settings-external-link" href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener">Get an OpenRouter API key ↗</a>
+                        <a class="settings-external-link" href="https://openrouter.ai/models?max_price=0" target="_blank" rel="noopener">Browse current free models ↗</a>
+                        <a class="settings-external-link" href="https://opencode.ai/docs/providers" target="_blank" rel="noopener">OpenCode provider guide ↗</a>
+                    </div>
+                    <div class="model-field-row">
+                        <label class="model-field">Groq model
+                            <input id="model-groq-model" type="text" autocomplete="off">
+                        </label>
+                        <label class="model-field">Gemini text model
+                            <input id="model-gemini-model" type="text" autocomplete="off">
+                        </label>
+                        <label class="model-field">OpenRouter default
+                            <input id="model-openrouter-model" type="text" autocomplete="off" placeholder="openrouter/free">
+                        </label>
+                    </div>
+                    <div class="model-settings-actions">
+                        <button type="button" class="model-settings-save" id="model-settings-save">Save global AI settings</button>
+                        <button type="button" class="model-settings-test" id="model-settings-test">Test saved connections</button>
+                    </div>
+                    <div class="model-test-results" id="model-test-results" hidden></div>
+                    <p class="settings-hint">One save covers every mode. Keys stay in this app's local <code>.env</code> file and are never returned to the browser. A Google AI subscription and Gemini API quota are separate products.</p>
+                </section>
+                <p class="settings-hint">Safe Work Mode browsing covers read-only navigation. Login, upload, publish, submit, edit, delete, purchases, and messages always require your confirmation. Passwords and one-time codes remain private user handoffs.</p>
+            </div>
+        </div>
+        <div class="panel-overlay" id="panel-overlay" aria-hidden="true"></div>
+        <div class="intel-dashboard" id="intel-dashboard" aria-hidden="true">
+            <div class="intel-dashboard-inner glass-panel">
+                <div class="intel-dashboard-header">
+                    <span class="intel-dashboard-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+                        Work Mode Plugins
+                    </span>
+                    <button class="btn-icon intel-dashboard-close" id="intel-dashboard-close" title="Close" aria-label="Close">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <div class="intel-tabs plugin-store-tabs" role="tablist">
+                    <button class="intel-tab active" id="plugin-installed-tab" type="button" role="tab">Installed</button>
+                    <button class="intel-tab" id="plugin-store-tab" type="button" role="tab">Plugin Marketplace</button>
+                </div>
+                <div class="intel-tab-content" id="intel-tab-content">
+                    <div class="plugin-toolbar"><input id="plugin-search" class="intel-input" placeholder="Search plugins..."></div>
+                    <div class="plugin-manifest-row" id="plugin-manifest-row" hidden>
+                        <input id="plugin-manifest-url" class="intel-input" placeholder="Install an HTTPS plugin manifest URL...">
+                        <button class="intel-btn secondary" id="plugin-manifest-install" type="button">Install from URL</button>
+                    </div>
+                    <div class="plugin-discovery-row" id="plugin-discovery-row" hidden>
+                        <strong>Install from a URL</strong>
+                        <ol>
+                            <li>Find an integration project and check that you trust its website.</li>
+                            <li>Create or locate an EDITH manifest JSON containing <code>id</code>, <code>name</code>, <code>description</code>, and an HTTPS <code>homepage</code>.</li>
+                            <li>Copy the direct HTTPS URL to that raw JSON file, paste it above, then select <b>Install from URL</b>.</li>
+                        </ol>
+                        <div class="plugin-help-links">
+                            <a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="noopener">Browse MCP integration projects ↗</a>
+                            <a href="https://www.youtube.com/watch?v=CQywdSdi5iA" target="_blank" rel="noopener">Watch Anthropic’s MCP video tutorial ▶</a>
+                        </div>
+                        <small>A normal GitHub repository page is not an install URL. Use the raw HTTPS URL of an EDITH-compatible JSON manifest. External code is never executed automatically.</small>
+                    </div>
+                    <div id="plugin-list"><div class="activity-empty">Loading plugins...</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="plugin-config-modal" id="plugin-config-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="plugin-config-title">
+            <form class="plugin-config-card glass-panel" id="plugin-config-form">
+                <div class="intel-dashboard-header">
+                    <div><span class="guide-kicker">LOCAL PLUGIN SETTINGS</span><h2 id="plugin-config-title">Configure plugin</h2></div>
+                    <button class="btn-icon" id="plugin-config-close" type="button" aria-label="Close plugin configuration">×</button>
+                </div>
+                <p class="plugin-config-help" id="plugin-config-help"></p>
+                <div class="plugin-config-fields" id="plugin-config-fields"></div>
+                <p class="plugin-config-privacy">Secrets are stored only in this EDITH installation’s local <code>.env</code> file and are never shown again.</p>
+                <div class="plugin-config-actions">
+                    <button class="intel-btn secondary" id="plugin-config-cancel" type="button">Cancel</button>
+                    <button class="intel-btn" id="plugin-config-save" type="submit">Save configuration</button>
+                </div>
+            </form>
+        </div>
+        <div class="google-connect-modal" id="google-connect-modal" role="dialog" aria-modal="true" aria-labelledby="google-connect-title" aria-hidden="true">
+            <div class="google-connect-card glass-panel">
+                <div class="google-connect-mark" aria-hidden="true">G</div>
+                <div>
+                    <span class="guide-kicker">ONE GOOGLE CONNECTION</span>
+                    <h2 id="google-connect-title">Connect Google to E.D.I.T.H.</h2>
+                    <p>Sign in once to enable Gmail, Google Drive, Google Calendar, and Google Tasks throughout Work Mode.</p>
+                    <div class="google-connect-apps"><span>Gmail</span><span>Drive</span><span>Calendar</span><span>Tasks</span></div>
+                    <p class="google-connect-privacy">Authentication stays in Google’s window. E.D.I.T.H. never receives your password or verification code.</p>
+                </div>
+                <div class="google-connect-actions">
+                    <button class="guide-secondary" id="google-connect-later" type="button">Not now</button>
+                    <button class="guide-primary" id="google-connect-button" type="button">Continue with Google <span>→</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="guide-modal open" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-title" aria-hidden="false">
+            <div class="guide-card glass-panel">
+                <div class="guide-topline">
+                    <span class="guide-kicker">QUICK START · <span id="guide-step-label">1 OF 2</span></span>
+                    <button class="guide-close" id="guide-close" type="button" title="Close guide" aria-label="Close guide">×</button>
+                </div>
+
+                <section class="guide-page active" data-guide-page="0">
+                    <div class="guide-heading-row">
+                        <span class="guide-heading-icon">
+                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </span>
+                        <div>
+                            <h2 id="guide-title">Work Mode commands</h2>
+                            <p>Describe the result you want and E.D.I.T.H. will choose and combine connected tools.</p>
+                        </div>
+                    </div>
+                    <div class="guide-command-list">
+                        <button class="guide-command" type="button" data-guide-command="Create an Excel file containing 20 fictional employees">
+                            <code>Create an employee Excel file</code>
+                            <span>Generates structured data and returns a professionally formatted XLSX artifact.</span>
+                        </button>
+                        <button class="guide-command" type="button" data-guide-command="Create a 7-slide presentation about renewable energy">
+                            <code>Create a presentation</code>
+                            <span>Plans concise slides and returns a 16:9 PowerPoint file.</span>
+                        </button>
+                        <button class="guide-command" type="button" data-guide-command="Show my latest emails">
+                            <code>Show my latest emails</code>
+                            <span>Uses Gmail after you connect Google from the Plugin Manager.</span>
+                        </button>
+                        <button class="guide-command" type="button" data-guide-command="Remind me tomorrow to submit the report">
+                            <code>Create a reminder</code>
+                            <span>Adds the reminder to Google Tasks after Google is connected.</span>
+                        </button>
+                    </div>
+                    <p class="guide-tip">Tip: select any command to place it in the message box.</p>
+                </section>
+
+                <section class="guide-page" data-guide-page="1" aria-hidden="true">
+                    <div class="guide-heading-row">
+                        <span class="guide-heading-icon controls-guide-icon">
+                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#0a0612"/><circle cx="15" cy="12" r="2" fill="#0a0612"/><circle cx="11" cy="18" r="2" fill="#0a0612"/></svg>
+                        </span>
+                        <div>
+                            <h2 id="guide-title-controls">Header and controls</h2>
+                            <p>A quick map of the buttons around the main E.D.I.T.H. workspace.</p>
+                        </div>
+                    </div>
+                    <div class="guide-control-grid">
+                        <div class="guide-control"><strong>E.D.I.T.H.</strong><span>Fast chat, product search, website actions, voice, and image analysis.</span></div>
+                        <div class="guide-control"><strong>Work</strong><span>Creates files and combines enabled plugins for multi-step tasks.</span></div>
+                        <div class="guide-control"><strong>Research</strong><span>Scans screenshots, researches the web, and solves homework batches with checked steps.</span></div>
+                        <div class="guide-control"><strong>Activity</strong><span>Shows the route and live execution steps behind the current answer.</span></div>
+                        <div class="guide-control"><strong>History</strong><span>Reopens earlier conversations saved by this deployment.</span></div>
+                        <div class="guide-control"><strong>Plugins</strong><span>Connects Gmail and Google Tasks and manages enabled Work Mode tools.</span></div>
+                        <div class="guide-control"><strong>Settings</strong><span>Controls automatic panels, thinking sounds, and voice interruption.</span></div>
+                        <div class="guide-control"><strong>New Chat</strong><span>Starts a clean conversation while keeping saved chat history available.</span></div>
+                        <div class="guide-control"><strong>Input tools</strong><span>Upload a photo, use the camera or microphone, and toggle speech.</span></div>
+                    </div>
+                </section>
+
+                <div class="guide-footer">
+                    <div class="guide-dots" aria-label="Guide progress"><span class="active"></span><span></span></div>
+                    <div class="guide-actions">
+                        <button class="guide-secondary" id="guide-back" type="button" hidden>Back</button>
+                        <button class="guide-primary" id="guide-next" type="button">Next: controls <span>→</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="speech-widget" id="speech-widget" aria-hidden="true">
+            <div class="speech-widget-inner">
+                <span class="speech-widget-label">Listening...</span>
+                <span class="speech-widget-text" id="speech-widget-text"></span>
+            </div>
+        </div>
+        <div class="toast-container" id="toast-container" aria-live="polite"></div>
+        <div class="cam-panel" id="cam-panel" aria-hidden="true">
+            <div class="cam-panel-header" id="cam-panel-header">
+                <span class="cam-panel-title">
+                    <span class="cam-panel-dot"></span>
+                    Vision
+                </span>
+                <div class="cam-panel-controls">
+                    <label class="cam-panel-vision-mode" title="Vision Mode — attach camera to every message">
+                        <input type="checkbox" id="cam-vision-mode" />
+                        <span class="cam-panel-vision-label">Live</span>
+                    </label>
+                    <button class="cam-panel-btn cam-minimize" id="cam-minimize" title="Minimize">−</button>
+                    <button class="cam-panel-btn cam-close" id="cam-close" title="Close camera">×</button>
+                </div>
+            </div>
+            <div class="cam-panel-body">
+                <video id="cam-video" autoplay playsinline muted></video>
+                <div class="cam-panel-overlay">
+                    <span class="cam-panel-status">Vision ready</span>
+                </div>
+            </div>
+            <div class="cam-panel-resize" id="cam-panel-resize" title="Drag to resize"></div>
+        </div>
+        <canvas id="cam-canvas" style="display: none;"></canvas>
+    </div>
+    <script src="script.js?v=20260830-native-browser2"></script>
+</body>
+</html>

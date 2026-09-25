@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="40%" r="72%">
+      <stop offset="0" stop-color="#24105b" stop-opacity=".32"/>
+      <stop offset=".42" stop-color="#090634" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#01010e" stop-opacity=".82"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="40%" r="34%">
+      <stop offset="0" stop-color="#ff0d64" stop-opacity=".22"/>
+      <stop offset=".38" stop-color="#9b1dff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#001d75" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2639d7" stop-opacity=".42"/>
+      <stop offset=".48" stop-color="#2554ff" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#1732b9" stop-opacity=".32"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff174f"/>
+      <stop offset=".46" stop-color="#ff236f"/>
+      <stop offset=".72" stop-color="#9828ff"/>
+      <stop offset="1" stop-color="#247fff"/>
+    </linearGradient>
+    <filter id="gridGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ringGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="7" result="wide"/>
+      <feGaussianBlur stdDeviation="2" result="near"/>
+      <feMerge><feMergeNode in="wide"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#020115"/>
+  <rect width="1920" height="1080" fill="url(#core)"/>
+
+  <!-- Perspective-warped web: denser and finer than a radar grid. -->
+  <g fill="none" stroke="url(#grid)" stroke-width="1.55" filter="url(#gridGlow)">
+    <path d="M24 0 C400 170 515 392 540 540 C515 710 390 914 24 1080"/>
+    <path d="M145 0 C460 170 570 392 590 540 C570 710 452 914 145 1080"/>
+    <path d="M270 0 C525 170 628 392 642 540 C628 710 520 914 270 1080"/>
+    <path d="M400 0 C590 170 683 392 696 540 C683 710 590 914 400 1080"/>
+    <path d="M535 0 C660 170 742 392 752 540 C742 710 660 914 535 1080"/>
+    <path d="M675 0 C735 170 800 392 810 540 C800 710 735 914 675 1080"/>
+    <path d="M818 0 C824 170 858 392 869 540 C858 710 824 914 818 1080"/>
+    <path d="M960 0 L960 1080"/>
+    <path d="M1102 0 C1096 170 1062 392 1051 540 C1062 710 1096 914 1102 1080"/>
+    <path d="M1245 0 C1185 170 1120 392 1110 540 C1120 710 1185 914 1245 1080"/>
+    <path d="M1385 0 C1260 170 1178 392 1168 540 C1178 710 1260 914 1385 1080"/>
+    <path d="M1520 0 C1330 170 1237 392 1224 540 C1237 710 1330 914 1520 1080"/>
+    <path d="M1650 0 C1395 170 1292 392 1278 540 C1292 710 1400 914 1650 1080"/>
+    <path d="M1775 0 C1460 170 1350 392 1330 540 C1350 710 1468 914 1775 1080"/>
+    <path d="M1896 0 C1520 170 1405 392 1380 540 C1405 710 1530 914 1896 1080"/>
+
+    <path d="M0 42 C420 216 1500 216 1920 42"/>
+    <path d="M0 126 C430 266 1490 266 1920 126"/>
+    <path d="M0 214 C450 320 1470 320 1920 214"/>
+    <path d="M0 302 C470 376 1450 376 1920 302"/>
+    <path d="M0 386 C500 430 1420 430 1920 386"/>
+    <path d="M0 466 C540 482 1380 482 1920 466"/>
+    <path d="M0 540 L1920 540"/>
+    <path d="M0 614 C540 598 1380 598 1920 614"/>
+    <path d="M0 694 C500 650 1420 650 1920 694"/>
+    <path d="M0 778 C470 704 1450 704 1920 778"/>
+    <path d="M0 866 C450 760 1470 760 1920 866"/>
+    <path d="M0 954 C430 814 1490 814 1920 954"/>
+    <path d="M0 1038 C420 864 1500 864 1920 1038"/>
+  </g>
+
+  <!-- Static broken HUD arcs: hot red above, electric blue on the flanks. -->
+  <g fill="none" stroke="#ff245c" stroke-linecap="round" filter="url(#ringGlow)">
+    <path d="M846 474 A132 132 0 0 1 1074 474" stroke-width="2.4" opacity=".96"/>
+    <path d="M821 460 A160 160 0 0 1 1099 460" stroke-width="1.8" opacity=".92"/>
+    <path d="M795 445 A190 190 0 0 1 1125 445" stroke-width="2.5" opacity=".9"/>
+    <path d="M768 429 A222 222 0 0 1 1152 429" stroke-width="1.7" opacity=".78"/>
+    <path d="M738 412 A256 256 0 0 1 1182 412" stroke-width="2.1" opacity=".67"/>
+    <path d="M707 394 A292 292 0 0 1 1213 394" stroke-width="1.5" opacity=".52"/>
+  </g>
+  <g fill="none" stroke="#2f6dff" stroke-linecap="round" filter="url(#ringGlow)">
+    <path d="M831 762 A256 256 0 0 1 719 452" stroke-width="2.2" opacity=".78"/>
+    <path d="M1201 452 A256 256 0 0 1 1089 762" stroke-width="2.2" opacity=".78"/>
+    <path d="M814 793 A292 292 0 0 1 686 439" stroke-width="1.6" opacity=".58"/>
+    <path d="M1234 439 A292 292 0 0 1 1106 793" stroke-width="1.6" opacity=".58"/>
+    <path d="M795 826 A330 330 0 0 1 650 427" stroke-width="1.3" opacity=".4"/>
+    <path d="M1270 427 A330 330 0 0 1 1125 826" stroke-width="1.3" opacity=".4"/>
+  </g>
+  <g fill="#ffd6ff">
+    <circle cx="960" cy="104" r="2.2"/><circle cx="712" cy="248" r="1.6"/>
+    <circle cx="1250" cy="300" r="1.8"/><circle cx="662" cy="486" r="1.4"/>
+    <circle cx="1304" cy="512" r="2"/><circle cx="1170" cy="664" r="1.5"/>
+  </g>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

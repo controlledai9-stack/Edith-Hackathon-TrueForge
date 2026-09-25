@@ -1,0 +1,15 @@
+{
+  "name": "edith-trueforge-runtime",
+  "private": true,
+  "description": "Pinned local TrueForge harness runtime for EDITH",
+  "scripts": {
+    "start": "trueforge",
+    "postinstall": "node scripts/patch-kysely-windows.mjs"
+  },
+  "dependencies": {
+    "@truefoundry/trueforge": "0.1.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
